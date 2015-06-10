@@ -1,5 +1,13 @@
-all:
-	@echo Choose you bitch
+all: script apply
+	make -C ../../tinykore pack
+ifneq "$(df | grep /mnt/iso)" ""
+	echo "Nothing to unmount"
+else
+	sudo umount -l /mnt/iso
+endif
+	sudo mount -o loop,ro ../../tinykore/test.iso /mnt/iso/
+	make reload
+	darkhttpd /mnt/iso
 
 reload:
 	sudo cp dnsmasq.conf /etc/dnsmasq.conf

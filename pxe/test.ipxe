@@ -1,6 +1,7 @@
 #!ipxe
 
 dhcp
+#chain http://10.3.140.71/${net0/mac}
 echo Hello World!
 echo THIS IS FLIHABI!!!
 
@@ -9,7 +10,7 @@ echo THIS IS FLIHABI!!!
 menu Flihabi's Boot Menu
 item
 item --gap -- ------------------------- Operating systems ------------------------------
-item tc    Boot Tinycore (or not)
+item tc    Boot Tinycore
 item --gap -- ------------------------------ Utilities ---------------------------------
 item shell      Enter iPXE shell
 item reboot     Reboot
@@ -34,7 +35,7 @@ exit
 ########### MENU ITEMS #######################
 # SmartOS Root shadow is "root"
 :tc
-kernel /boot/vmlinuz
-initrd /boot/core.gz
-boot
+kernel /boot/vmlinuz || poweroff
+initrd /boot/core.gz || poweroff
+boot || poweroff
 goto start
