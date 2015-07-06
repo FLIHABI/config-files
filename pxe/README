@@ -29,6 +29,9 @@ Please find the correct ones for your's
 0. ip addr add 192.168.0.1/24 dev eth0
 Where eth0 is the interface in
 dnsmasq.conf
+0.5. set your ip address in test.ipxe
+1. make
+OR
 1. make reload (reload dnsmasq with dnsmasq.conf)
 2. darkhttp /mn/iso
 3. Enjoy!

@@ -35,7 +35,7 @@ exit
 ########### MENU ITEMS #######################
 # SmartOS Root shadow is "root"
 :tc
-kernel /boot/vmlinuz || poweroff
-initrd /boot/core.gz || poweroff
+kernel http://192.168.0.1:8080/boot/vmlinuz || poweroff
+initrd http://192.168.0.1:8080/boot/core.gz || poweroff
 boot || poweroff
 goto start
